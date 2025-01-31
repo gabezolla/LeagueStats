@@ -13,16 +13,17 @@ namespace LeagueStats.Setup
             return services.AddScoped<IAccountService, AccountService>();            
         }
 
-        public static IServiceCollection RegisterHttpClients(this IServiceCollection services, ConfigurationManager configuration)
+        public static WebApplicationBuilder RegisterHttpClients(this WebApplicationBuilder builder)
         {
-            var config = configuration.GetSection("RiotClient").Get<RiotClientConfig>();
-            services.AddHttpClient<IRiotClient<RiotDTO>, RiotClient<RiotDTO>>().ConfigureHttpClient(o =>
+            var config = builder.Configuration.GetSection("RiotClient").Get<RiotClientConfig>();
+
+            builder.Services.AddHttpClient<IRiotClient<RiotDTO>, RiotClient<RiotDTO>>().ConfigureHttpClient(o =>
             {
                 o.BaseAddress = new Uri(config.BaseUrl);
                 o.DefaultRequestHeaders.Add("X-Riot-Token", config.ApiKey);
             });
 
-            return services;
+            return builder;
         }
     }
 }
