@@ -9,6 +9,8 @@ namespace LeagueStats.Infrastructure.Services
 {
     public interface IAccountService
     {
-        Task<Summoner> GetSummoner(string puuid);
+        Task<Summoner> GetSummonerById(string puuid);
+
+        Task<Summoner> GetSummoner(string gameName, string tagLine);
     }
 }
