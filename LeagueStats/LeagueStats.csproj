@@ -4,9 +4,11 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>6095734d-b4b6-49d6-8054-0c051c3197df</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="MediatR" Version="12.4.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
@@ -14,6 +16,11 @@
   <ItemGroup>
     <ProjectReference Include="..\LeagueStats.Application\LeagueStats.Application.csproj" />
     <ProjectReference Include="..\LeagueStats.Infrastructure\LeagueStats.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Configurations\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 
 </Project>
