@@ -1,5 +1,4 @@
 ﻿using LeagueStats.Infrastructure.Models;
-using LeagueStats.Infrastructure.Rest;
 using System;
 using System.Collections.Generic;
 using System.Linq;

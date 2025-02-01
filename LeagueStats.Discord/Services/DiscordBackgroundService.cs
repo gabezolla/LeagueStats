@@ -23,7 +23,10 @@ namespace LeagueStats.Discord.Services
 
         public DiscordBackgroundService(IDiscordBotFacade facade, IOptions<DiscordBotConfig> config)
         {
-            _client = new DiscordSocketClient(new DiscordSocketConfig());
+            _client = new DiscordSocketClient(new DiscordSocketConfig {
+                GatewayIntents = GatewayIntents.AllUnprivileged | GatewayIntents.MessageContent,
+                LogLevel = LogSeverity.Info
+            });
             _config = config.Value;
             _facade = facade;
 
@@ -33,8 +36,7 @@ namespace LeagueStats.Discord.Services
         protected async override Task ExecuteAsync(CancellationToken stoppingToken)
         {
             await _client.LoginAsync(TokenType.Bot, _config.Token);
-            _client.GetChannel(935660177930219573);
-            _client.GetGuild(935687844993839134);
+            
             await _client.StartAsync();
             await Task.Delay(-1);
         }
@@ -58,8 +60,7 @@ namespace LeagueStats.Discord.Services
 
             var embed = new EmbedBuilder()
                 .WithTitle("Gandhi está pacientemente lendo os dados...")
-                .WithDescription(string.Join("\n", response.Select(x => $"Nome: {x.Id} | Lane: {x.Lane} | Dano: {x.DamageDealt} | Dano Sofrido: {x.DamageTaken} " +
-                $"| Pinks: {x.StealthWardsPlaced} | Skillshots desviadas: {x.SkillshotsDodged} | KDA: {Math.Round(x.Kda, 2)} | DPM : {Math.Round(x.DamagePerMinute, 2)}\n\n")))
+                .WithDescription(string.Join("\n", response.Select(x => $"Nome: {x.Id} | Lane: {x.Lane} | Champion: {x.Champion} | Dano: {x.DamageDealt} | Dano Sofrido: {x.DamageTaken} " + $"| Pinks: {x.StealthWardsPlaced} | Skillshots desviadas: {x.SkillshotsDodged} | KDA: {Math.Round(x.Kda, 2)} | DPM : {Math.Round(x.DamagePerMinute, 2)}\n\n")))
                 .WithColor(Color.Blue)
                 .Build();
 
