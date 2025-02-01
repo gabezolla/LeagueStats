@@ -1,3 +1,4 @@
+using LeagueStats.Discord.Services;
 using LeagueStats.Setup;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,8 @@ builder.Services.AddHttpClient();
 builder.RegisterConfigurations();
 builder.Services.RegisterDependencies();
 builder.Services.RegisterServices();
+
+builder.Services.AddHostedService<DiscordBackgroundService>();
 
 var app = builder.Build();
 

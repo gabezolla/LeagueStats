@@ -1,4 +1,5 @@
 ﻿using LeagueStats.Infrastructure.Clients;
+using LeagueStats.Discord.Facades;
 using LeagueStats.Infrastructure.Models;
 using LeagueStats.Infrastructure.Services;
 using Microsoft.Extensions.Configuration;
@@ -12,7 +13,8 @@ namespace LeagueStats.Setup
         {
             return services.AddScoped<IAccountService, AccountService>()
                            .AddScoped<IRiotClient, RiotClient>()
-                           .AddScoped<IMatchStatsService, MatchStatsService>();            
+                           .AddScoped<IMatchStatsService, MatchStatsService>()
+                           .AddSingleton<IDiscordBotFacade, DiscordBotFacade>();
         }
     }
 }
