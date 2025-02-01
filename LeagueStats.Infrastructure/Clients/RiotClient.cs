@@ -1,5 +1,7 @@
-﻿using LeagueStats.Infrastructure.Models;
+﻿using LeagueStats.Infrastructure.Configurations;
+using LeagueStats.Infrastructure.Models;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,17 +15,24 @@ using System.Threading.Tasks;
 
 namespace LeagueStats.Infrastructure.Clients
 {
-    public class RiotClient<T> : IRiotClient<T> where T : RiotDTO
+    public class RiotClient : IRiotClient
     {
         private readonly HttpClient _httpClient;
-        private readonly ILogger<RiotClient<T>> _logger;
-        public RiotClient(HttpClient httpClient, ILogger<RiotClient<T>> logger)
+        private readonly RiotClientConfig _config;   
+        private readonly ILogger<RiotClient> _logger;
+
+        public RiotClient(IOptions<RiotClientConfig> config, HttpClient httpClient, ILogger<RiotClient> logger)
         {
             _httpClient = httpClient;
+            _config = config.Value;
+
+            _httpClient.BaseAddress = new Uri(_config.BaseUrl);
+            _httpClient.DefaultRequestHeaders.Add("X-Riot-Token", _config.ApiKey);
+
             _logger = logger;
         }
 
-        public async Task<T> Get(string endpoint)
+        public async Task<T> Get<T>(string endpoint) where T : class
         {
             var stopwatch = new Stopwatch();
             stopwatch.Start();
