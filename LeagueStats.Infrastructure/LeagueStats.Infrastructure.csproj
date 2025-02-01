@@ -9,9 +9,11 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LeagueStats.Abstractions\LeagueStats.Abstractions.csproj" />
     <ProjectReference Include="..\LeagueStats.Domain\LeagueStats.Domain.csproj" />
   </ItemGroup>
 
