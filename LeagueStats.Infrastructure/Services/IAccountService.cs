@@ -1,4 +1,5 @@
 ﻿using LeagueStats.Domain.Entities;
+using LeagueStats.Infrastructure.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace LeagueStats.Infrastructure.Services
 {
     public interface IAccountService
     {
-        Task<Summoner> GetSummonerById(string puuid);
+        Task<AccountDTO> GetSummonerById(string puuid);
 
-        Task<Summoner> GetSummoner(string gameName, string tagLine);
+        Task<AccountDTO> GetSummoner(string gameName, string tagLine);
     }
 }
