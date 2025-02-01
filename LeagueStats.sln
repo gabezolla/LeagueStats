@@ -3,20 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35208.52
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeagueStats", "LeagueStats\LeagueStats.csproj", "{88E04AF2-D8B1-4AE1-A8B6-44C52FCDF27C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeagueStats", "LeagueStats\LeagueStats.csproj", "{88E04AF2-D8B1-4AE1-A8B6-44C52FCDF27C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeagueStats.Domain", "LeagueStats.Domain\LeagueStats.Domain.csproj", "{41A88DB8-0DE4-4B88-BC93-68AE3957E64B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeagueStats.Domain", "LeagueStats.Domain\LeagueStats.Domain.csproj", "{41A88DB8-0DE4-4B88-BC93-68AE3957E64B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BDEDCE38-6D94-4D73-BEEB-2D6949C48BEF}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeagueStats.Application", "LeagueStats.Application\LeagueStats.Application.csproj", "{E18BDFFC-B51E-4369-A84A-A8876EE84DDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeagueStats.Application", "LeagueStats.Application\LeagueStats.Application.csproj", "{E18BDFFC-B51E-4369-A84A-A8876EE84DDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeagueStats.Infrastructure", "LeagueStats.Infrastructure\LeagueStats.Infrastructure.csproj", "{25E577E5-C372-45B8-A328-F5D23D8B95E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeagueStats.Infrastructure", "LeagueStats.Infrastructure\LeagueStats.Infrastructure.csproj", "{25E577E5-C372-45B8-A328-F5D23D8B95E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeagueStats.Domain.Core", "LeagueStats.Domain.Core\LeagueStats.Domain.Core.csproj", "{049393ED-DC94-4BE3-B24D-5CE1692F384D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeagueStats.Domain.Core", "LeagueStats.Domain.Core\LeagueStats.Domain.Core.csproj", "{049393ED-DC94-4BE3-B24D-5CE1692F384D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeagueStats.Abstractions", "LeagueStats.Abstractions\LeagueStats.Abstractions.csproj", "{BCD29D6A-53AE-481E-814A-75AE87C03AFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeagueStats.DiscordBot", "LeagueStats.DiscordBot\LeagueStats.DiscordBot.csproj", "{06610EDA-3057-4F55-86DF-B8421D5DAD7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +48,14 @@ Global
 		{049393ED-DC94-4BE3-B24D-5CE1692F384D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{049393ED-DC94-4BE3-B24D-5CE1692F384D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{049393ED-DC94-4BE3-B24D-5CE1692F384D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCD29D6A-53AE-481E-814A-75AE87C03AFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCD29D6A-53AE-481E-814A-75AE87C03AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCD29D6A-53AE-481E-814A-75AE87C03AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCD29D6A-53AE-481E-814A-75AE87C03AFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06610EDA-3057-4F55-86DF-B8421D5DAD7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06610EDA-3057-4F55-86DF-B8421D5DAD7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06610EDA-3057-4F55-86DF-B8421D5DAD7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06610EDA-3057-4F55-86DF-B8421D5DAD7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
