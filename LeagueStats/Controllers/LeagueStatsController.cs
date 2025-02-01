@@ -15,7 +15,7 @@ namespace LeagueStats.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet("/summoner/{gameName}/{tagLine}")]
+        [HttpGet("/summoners/{gameName}/{tagLine}")]
         public async Task<IActionResult> GetSummoner(string gameName, string tagLine)
         {
             var result = await _mediator.Send(new GetSummonerCommand(gameName, tagLine));
@@ -23,11 +23,20 @@ namespace LeagueStats.Controllers
             return Ok(result);
         }
 
-        [HttpGet("/match/{id}")]
-        public async Task<IActionResult> GetMatchStats(string id)
+        [HttpGet("/matches/{quantity}/id/{id}")]
+        public async Task<IActionResult> GetMatchesId(int quantity, string id)
         {
-            return Ok();
+            var result = await _mediator.Send(new GetMatchesIdCommand(id, quantity));
+
+            return Ok(result);
         }
 
+        [HttpGet("/matches/{id}")]
+        public async Task<IActionResult> GetMatchStats(string id)
+        {
+            var result = await _mediator.Send(new GetMatchStatsCommand(id));
+
+            return Ok(result);
+        }
     }
 }
