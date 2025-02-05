@@ -12,7 +12,7 @@ namespace LeagueStats.Application.Commands
     {
         public GetStoredStatsFromPlayerCommand(string playerId)
         {
-            PlayerId = pla;
+            PlayerId = playerId;
         }
 
         public string PlayerId { get; set; }
