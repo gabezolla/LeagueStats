@@ -20,7 +20,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeagueStats.Domain.Core", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeagueStats.Abstractions", "LeagueStats.Abstractions\LeagueStats.Abstractions.csproj", "{BCD29D6A-53AE-481E-814A-75AE87C03AFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeagueStats.Discord", "LeagueStats.Discord\LeagueStats.Discord.csproj", "{673EEE96-F514-4374-B872-E973FDF7B7EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeagueStats.Discord", "LeagueStats.Discord\LeagueStats.Discord.csproj", "{673EEE96-F514-4374-B872-E973FDF7B7EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeagueStats.Data", "LeagueStats.Data\LeagueStats.Data.csproj", "{BC94A616-A410-48DE-AA6B-7672B657AC60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +58,10 @@ Global
 		{673EEE96-F514-4374-B872-E973FDF7B7EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{673EEE96-F514-4374-B872-E973FDF7B7EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{673EEE96-F514-4374-B872-E973FDF7B7EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC94A616-A410-48DE-AA6B-7672B657AC60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC94A616-A410-48DE-AA6B-7672B657AC60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC94A616-A410-48DE-AA6B-7672B657AC60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC94A616-A410-48DE-AA6B-7672B657AC60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
