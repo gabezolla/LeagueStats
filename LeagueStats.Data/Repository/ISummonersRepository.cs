@@ -1,4 +1,5 @@
-﻿using LeagueStats.Domain.Entities;
+﻿using LeagueStats.Domain.Core.Data;
+using LeagueStats.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace LeagueStats.Data.Repository
 {
-    internal interface ISummonersRepository
+    internal interface ISummonersRepository : IRepository<Summoner>
     {
-        public Summoner GetSummonerByPuuid(string puuid);
+        public Task<Summoner?> GetSummonerByPuuid(string puuid);
         
-        public Summoner GetSummonerByNameAndTag(string gameName, string tagLine);
+        public Task<Summoner?> GetSummonerByNameAndTag(string gameName, string tagLine);
 
-        public Task<bool> AddSummonerToFavorites(Summoner summoner);
+        public void AddSummonerToFavorites(Summoner summoner);
     }
 }
