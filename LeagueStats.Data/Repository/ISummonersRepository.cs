@@ -15,5 +15,7 @@ namespace LeagueStats.Data.Repository
         public Task<Summoner?> GetSummonerByNameAndTag(string gameName, string tagLine);
 
         public void AddSummonerToFavorites(Summoner summoner);
+
+        public Task<IEnumerable<Summoner>> GetFavoriteSummoners();
     }
 }

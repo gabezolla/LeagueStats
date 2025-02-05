@@ -28,6 +28,11 @@ namespace LeagueStats.Application.CommandHandlers
                 return new List<Stats>();
             }
 
+            foreach (var item in result.Info.Participants)
+            {
+                item.MatchId = request.MatchId;
+            }
+
             return _mapper.Map<IEnumerable<Stats>>(result.Info.Participants);
         }
     }

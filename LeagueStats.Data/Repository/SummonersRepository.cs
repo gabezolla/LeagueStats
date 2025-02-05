@@ -3,6 +3,7 @@ using LeagueStats.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,7 @@ namespace LeagueStats.Data.Repository
 
         public void AddSummonerToFavorites(Summoner summoner)
         {
-            throw new NotImplementedException();
+            _context.Summoners.Add(summoner);
         }
 
         public void Dispose() => _context.Dispose();
@@ -40,6 +41,13 @@ namespace LeagueStats.Data.Repository
             var summonersList = await _context.Summoners.ToListAsync();
 
             return summonersList.FirstOrDefault(s => s.Id.Equals(puuid));
+        }
+
+        public async Task<IEnumerable<Summoner>> GetFavoriteSummoners()
+        {
+            var summonersList = await _context.Summoners.ToListAsync();
+
+            return summonersList;
         }
     }
 }
