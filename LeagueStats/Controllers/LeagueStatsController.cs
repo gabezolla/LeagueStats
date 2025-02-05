@@ -2,6 +2,7 @@
 using LeagueStats.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace LeagueStats.Controllers
 {
@@ -37,6 +38,23 @@ namespace LeagueStats.Controllers
             var result = await _mediator.Send(new GetMatchStatsCommand(id));
 
             return Ok(result);
+        }
+
+        [HttpPost("/summoners/{gameName}/{tagLine}")]
+        public async Task<IActionResult> AddSummonerToFavorite(string gameName, string tagLine)
+        {
+            var summoner = await _mediator.Send(new GetSummonerCommand(gameName, tagLine));
+
+            try
+            {
+                var success = await _mediator.Send(new StoreFavoriteSummonerCommand(summoner));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex);
+            }
+            
+            return Accepted();
         }
     }
 }
