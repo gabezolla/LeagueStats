@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LeagueStats.Data.Repository
 {
-    internal interface ISummonersRepository : IRepository<Summoner>
+    public interface ISummonersRepository : IRepository<Summoner>
     {
         public Task<Summoner?> GetSummonerByPuuid(string puuid);
         

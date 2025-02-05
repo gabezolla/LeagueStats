@@ -4,6 +4,8 @@ using LeagueStats.Infrastructure.Models;
 using LeagueStats.Infrastructure.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using LeagueStats.Domain.Core.Data;
+using LeagueStats.Data.Repository;
 
 namespace LeagueStats.Setup
 {
@@ -14,7 +16,9 @@ namespace LeagueStats.Setup
             return services.AddScoped<IAccountService, AccountService>()
                            .AddScoped<IRiotClient, RiotClient>()
                            .AddScoped<IMatchStatsService, MatchStatsService>()
-                           .AddSingleton<IDiscordBotFacade, DiscordBotFacade>();
+                           .AddSingleton<IDiscordBotFacade, DiscordBotFacade>()
+                           .AddScoped<IMatchStatsRepository, MatchStatsRepository>()
+                           .AddScoped<ISummonersRepository, SummonersRepository>();
         }
     }
 }

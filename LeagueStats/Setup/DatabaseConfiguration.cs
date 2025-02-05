@@ -1,7 +1,5 @@
 ﻿using LeagueStats.Data;
 using Microsoft.EntityFrameworkCore;
-using System.Net.NetworkInformation;
-using System.Runtime.CompilerServices;
 
 namespace LeagueStats.Setup
 {
@@ -11,7 +9,7 @@ namespace LeagueStats.Setup
         {
             var connectionString = builder.Configuration.GetConnectionString("Database");
 
-            builder.Services.AddDbContext<LeagueStatsDbContext>(options => options.UseMySQL(connectionString));
+            builder.Services.AddDbContext<LeagueStatsDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
             return builder;
         }
