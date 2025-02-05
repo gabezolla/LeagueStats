@@ -8,6 +8,8 @@ namespace LeagueStats.Infrastructure.Models
 {
     public class ParticipantStats
     {
+        public string Puuid { get; set; }
+
         public string RiotIdGameName { get; set; }
 
         public string ChampionName { get; set; }
@@ -19,6 +21,13 @@ namespace LeagueStats.Infrastructure.Models
         public double TotalDamageTaken { get; set; }
 
         public Challenges Challenges { get; set; }
+
+        public Metadata Metadata { get; set; }
+    }
+
+    public class Metadata
+    {
+        public string MatchId { get; set; }
     }
 
     public class Challenges
@@ -27,10 +36,12 @@ namespace LeagueStats.Infrastructure.Models
 
         public double DamagePerMinute { get; set; }
 
-        public double SkillshotsDodged { get; set; }
+        public int SkillshotsDodged { get; set; }
+
+        public int SkillshotsHit { get; set; }
 
         public double Kda { get; set; }
 
-        public double StealthWardsPlaced { get; set; }
+        public int StealthWardsPlaced { get; set; }
     }
 }
