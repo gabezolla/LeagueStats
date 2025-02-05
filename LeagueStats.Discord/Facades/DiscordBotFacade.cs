@@ -30,9 +30,20 @@ namespace LeagueStats.Discord.Facades
 
                 var summoner = await mediator.Send(new GetSummonerCommand(gameName, tagLine));
 
+                var favoriteSummoners = await mediator.Send(new GetFavoriteSummonersCommand());
+
                 var matchId = await mediator.Send(new GetMatchesIdCommand(summoner.Id, 1));
 
                 var stats = await mediator.Send(new GetMatchStatsCommand(matchId.First()));
+
+                if (favoriteSummoners.Contains(summoner))
+                {
+                    var favoriteSummonersIds = favoriteSummoners.Select(s => s.Id).ToList();
+
+                    var statsToStore = stats.Where(s => favoriteSummonersIds.Contains(s.PlayerId)).ToList();
+
+                    await mediator.Send(new StoreMatchStatsCommand(statsToStore));
+                }
 
                 return stats;
             }
