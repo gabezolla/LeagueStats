@@ -7,6 +7,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.ConfigureEntityFramework();
 
 builder.Services.AddHttpClient();
 builder.RegisterConfigurations();

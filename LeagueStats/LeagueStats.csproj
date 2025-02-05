@@ -10,12 +10,13 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="MediatR" Version="12.4.1" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="9.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\LeagueStats.Application\LeagueStats.Application.csproj" />
-    <ProjectReference Include="..\LeagueStats.DiscordBot\LeagueStats.DiscordBot.csproj" />
+    <ProjectReference Include="..\LeagueStats.Data\LeagueStats.Data.csproj" />
     <ProjectReference Include="..\LeagueStats.Discord\LeagueStats.Discord.csproj" />
     <ProjectReference Include="..\LeagueStats.Infrastructure\LeagueStats.Infrastructure.csproj" />
   </ItemGroup>
