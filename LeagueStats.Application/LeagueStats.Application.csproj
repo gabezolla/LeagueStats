@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LeagueStats.Data\LeagueStats.Data.csproj" />
     <ProjectReference Include="..\LeagueStats.Domain\LeagueStats.Domain.csproj" />
     <ProjectReference Include="..\LeagueStats.Infrastructure\LeagueStats.Infrastructure.csproj" />
   </ItemGroup>
