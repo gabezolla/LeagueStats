@@ -15,7 +15,7 @@ namespace LeagueStats.Infrastructure.Mappings
         public ParticipantsStatsToStatsMappingProfile()
         {
             CreateMap<ParticipantStats, Stats>()
-                .ConstructUsing(src => new Stats(src.Metadata.MatchId, src.Puuid, src.ChampionName, src.TeamPosition, src.TotalDamageDealtToChampions, src.TotalDamageTaken, src.Challenges.StealthWardsPlaced, src.Challenges.TeamDamagePercentage, src.Challenges.DamagePerMinute, src.Challenges.SkillshotsDodged, src.Challenges.SkillshotsHit, src.Challenges.Kda, src.RiotIdGameName));
+                .ConstructUsing(src => new Stats(src.MatchId, src.Puuid, src.ChampionName, src.TeamPosition, src.TotalDamageDealtToChampions, src.TotalDamageTaken, src.Challenges.StealthWardsPlaced, src.Challenges.TeamDamagePercentage, src.Challenges.DamagePerMinute, src.Challenges.SkillshotsDodged, src.Challenges.SkillshotsHit, src.Challenges.Kda, src.RiotIdGameName));
         }
     }
 }

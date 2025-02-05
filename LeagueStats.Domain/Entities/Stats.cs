@@ -10,10 +10,11 @@ namespace LeagueStats.Domain.Entities
 {
     public class Stats : Entity, IAggregateRoot
     {
-        public Stats(string id, string playerId, string champion, string lane, double damageDealt, double damageTaken, int stealthWardsPlaced, double teamDamagePercentage, double damagePerMinute, int skillshotsDodged, int skillshotsHit, double kda, string gameName)
+        public Stats(string matchId, string playerId, string champion, string lane, double damageDealt, double damageTaken, int stealthWardsPlaced, double teamDamagePercentage, double damagePerMinute, int skillshotsDodged, int skillshotsHit, double kda, string gameName)
         {
-            Id = id;
-            PlayerId = id;
+            Id = Guid.NewGuid().ToString();
+            MatchId = matchId;
+            PlayerId = playerId;
             Champion = champion;
             Lane = lane;
             DamageDealt = damageDealt;
@@ -26,6 +27,8 @@ namespace LeagueStats.Domain.Entities
             GameName = gameName;
             SkillshotsHit = skillshotsHit;
         }
+
+        public string MatchId { get; private set; }
 
         public string GameName { get; private set; }
 
@@ -50,7 +53,6 @@ namespace LeagueStats.Domain.Entities
         public int SkillshotsHit { get; private set; }
 
         public double Kda { get; private set; }
-
 
         public void Validate()
         {

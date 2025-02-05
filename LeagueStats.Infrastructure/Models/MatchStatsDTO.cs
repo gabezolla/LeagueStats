@@ -9,7 +9,13 @@ namespace LeagueStats.Infrastructure.Models
     public class MatchStatsDTO : RiotDTO
     {
         public Info Info { get; set; }
-        
+
+        public Metadata Metadata { get; set; }        
+    }
+
+    public class Metadata
+    {
+        public string MatchId { get; set; }
     }
 
     public class Info

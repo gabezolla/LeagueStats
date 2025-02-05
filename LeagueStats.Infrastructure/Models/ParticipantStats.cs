@@ -22,13 +22,8 @@ namespace LeagueStats.Infrastructure.Models
 
         public Challenges Challenges { get; set; }
 
-        public Metadata Metadata { get; set; }
-    }
-
-    public class Metadata
-    {
         public string MatchId { get; set; }
-    }
+    }    
 
     public class Challenges
     {
