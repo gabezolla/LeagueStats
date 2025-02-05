@@ -9,7 +9,7 @@ using LeagueStats.Domain.Core.DomainObjects;
 
 namespace LeagueStats.Domain.Entities
 {
-    public class Summoner : Entity
+    public class Summoner : Entity, IAggregateRoot
     {
         public Summoner(string id, string gameName, string tagline)
         {

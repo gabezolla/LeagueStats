@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace LeagueStats.Domain.Entities
 {
-    public class Stats : Entity
+    public class Stats : Entity, IAggregateRoot
     {
-        public Stats(string id, string champion, string lane, double damageDealt, double damageTaken, double stealthWardsPlaced, double teamDamagePercentage, double damagePerMinute, double skillshotsDodged, double kda)
+        public Stats(string id, string playerId, string champion, string lane, double damageDealt, double damageTaken, int stealthWardsPlaced, double teamDamagePercentage, double damagePerMinute, int skillshotsDodged, int skillshotsHit, double kda, string gameName)
         {
             Id = id;
+            PlayerId = id;
             Champion = champion;
             Lane = lane;
             DamageDealt = damageDealt;
@@ -22,7 +23,13 @@ namespace LeagueStats.Domain.Entities
             DamagePerMinute = damagePerMinute;
             SkillshotsDodged = skillshotsDodged;
             Kda = kda;
+            GameName = gameName;
+            SkillshotsHit = skillshotsHit;
         }
+
+        public string GameName { get; private set; }
+
+        public string PlayerId { get; private set; }
 
         public string Champion { get; private set; }
 
@@ -32,15 +39,18 @@ namespace LeagueStats.Domain.Entities
 
         public double DamageTaken { get; private set; }
 
-        public double StealthWardsPlaced { get; private set; }
+        public int StealthWardsPlaced { get; private set; }
 
         public double TeamDamagePercentage { get; private set; }
 
         public double DamagePerMinute { get; private set; }
 
-        public double SkillshotsDodged { get; private set; }
+        public int SkillshotsDodged { get; private set; }
 
-        public double Kda { get; set; }
+        public int SkillshotsHit { get; private set; }
+
+        public double Kda { get; private set; }
+
 
         public void Validate()
         {
