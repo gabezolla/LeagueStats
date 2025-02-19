@@ -1,6 +1,6 @@
 ﻿using LeagueStats.Application.Commands;
-using LeagueStats.Data.Repository;
 using LeagueStats.Domain.Entities;
+using LeagueStats.Domain.Repository;
 using MediatR;
 using System;
 using System.Collections.Generic;

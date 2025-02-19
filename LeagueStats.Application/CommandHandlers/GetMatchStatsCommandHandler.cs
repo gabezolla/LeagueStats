@@ -1,21 +1,17 @@
 ﻿using AutoMapper;
+using LeagueStats.Application.Abstractions;
 using LeagueStats.Application.Commands;
 using LeagueStats.Domain.Entities;
-using LeagueStats.Infrastructure.Clients;
-using LeagueStats.Infrastructure.Models;
-using LeagueStats.Infrastructure.Services;
 using MediatR;
 
 namespace LeagueStats.Application.CommandHandlers
 {
     public class GetMatchStatsCommandHandler : IRequestHandler<GetMatchStatsCommand, IEnumerable<Stats>>
     {
-        private readonly IMapper _mapper;
         private readonly IMatchStatsService _matchService;
 
-        public GetMatchStatsCommandHandler(IMapper mapper, IMatchStatsService matchService)
+        public GetMatchStatsCommandHandler(IMatchStatsService matchService)
         {
-            _mapper = mapper;
             _matchService = matchService;
         }
 
@@ -28,12 +24,7 @@ namespace LeagueStats.Application.CommandHandlers
                 return new List<Stats>();
             }
 
-            foreach (var item in result.Info.Participants)
-            {
-                item.MatchId = request.MatchId;
-            }
-
-            return _mapper.Map<IEnumerable<Stats>>(result.Info.Participants);
+            return result;
         }
     }
 }

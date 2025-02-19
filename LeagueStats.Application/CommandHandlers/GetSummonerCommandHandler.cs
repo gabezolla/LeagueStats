@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using LeagueStats.Application.Abstractions;
 using LeagueStats.Application.Commands;
 using LeagueStats.Domain.Entities;
-using LeagueStats.Infrastructure.Services;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -14,19 +14,17 @@ namespace LeagueStats.Application.CommandHandlers
     public class GetSummonerCommandHandler : IRequestHandler<GetSummonerCommand, Summoner> // TODO: change to SummonerViewModel
     {
         private readonly IAccountService _accountService;
-        private readonly IMapper _mapper;
-
-        public GetSummonerCommandHandler(IAccountService accountService, IMapper mapper)
+        
+        public GetSummonerCommandHandler(IAccountService accountService)
         {
-            _accountService = accountService;
-            _mapper = mapper;
+            _accountService = accountService;            
         }
 
         public async Task<Summoner> Handle(GetSummonerCommand request, CancellationToken cancellationToken)
         {
-            var result = await _accountService.GetSummoner(request.GameName, request.TagLine);  
-            
-            return _mapper.Map<Summoner>(result);
+            var result = await _accountService.GetSummoner(request.GameName, request.TagLine);
+
+            return result;
         }
     }
 }

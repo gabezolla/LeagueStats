@@ -1,12 +1,7 @@
 ﻿using LeagueStats.Application.Commands;
-using LeagueStats.Data.Repository;
 using LeagueStats.Domain.Entities;
+using LeagueStats.Domain.Repository;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LeagueStats.Application.CommandHandlers
 {

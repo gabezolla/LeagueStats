@@ -1,5 +1,5 @@
-﻿using LeagueStats.Application.Commands;
-using LeagueStats.Infrastructure.Services;
+﻿using LeagueStats.Application.Abstractions;
+using LeagueStats.Application.Commands;
 using MediatR;
 using System;
 using System.Collections.Generic;
