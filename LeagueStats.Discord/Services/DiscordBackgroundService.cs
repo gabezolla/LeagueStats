@@ -56,7 +56,7 @@ namespace LeagueStats.Discord.Services
             var gameName = parts[1].Trim();
             var tagLine = parts[2].Trim();
 
-            var  response = await _facade.GetStats(gameName, tagLine);
+            var response = await _facade.GetStats(gameName, tagLine);
 
             var embed = new EmbedBuilder()
                 .WithTitle("Gandhi está pacientemente lendo os dados...")

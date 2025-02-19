@@ -43,6 +43,8 @@ namespace LeagueStats.Discord.Facades
                     var statsToStore = stats.Where(s => favoriteSummonersIds.Contains(s.PlayerId)).ToList();
 
                     await mediator.Send(new StoreMatchStatsCommand(statsToStore));
+
+                    return statsToStore;
                 }
 
                 return stats;
