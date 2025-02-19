@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeagueStats.Data.Repository
+namespace LeagueStats.Domain.Repository
 {
     public interface IMatchStatsRepository : IRepository<Stats>
     {

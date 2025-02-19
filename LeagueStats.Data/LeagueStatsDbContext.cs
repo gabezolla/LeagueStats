@@ -17,6 +17,8 @@ namespace LeagueStats.Data
 
         public DbSet<Summoner> Summoners { get; set; }
 
+        public DbSet<Member> Members { get; set; }
+
         /// <summary>
         /// Mapeia as strings para varchar(100), para evitar criar um nvarchar(MAX)
         /// </summary>

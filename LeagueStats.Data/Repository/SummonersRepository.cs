@@ -1,13 +1,7 @@
 ﻿using LeagueStats.Domain.Core.Data;
 using LeagueStats.Domain.Entities;
+using LeagueStats.Domain.Repository;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LeagueStats.Data.Repository
 {
