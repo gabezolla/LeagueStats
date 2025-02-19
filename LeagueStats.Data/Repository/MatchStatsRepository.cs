@@ -1,6 +1,7 @@
 ﻿using LeagueStats.Domain.Core.Data;
 using LeagueStats.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,11 @@ namespace LeagueStats.Data.Repository
         {
             foreach(var item in stats)
             {
+                if(_context.Stats.Any(s => s.MatchId == item.MatchId && s.PlayerId == item.PlayerId))
+                {
+                    continue;
+                }
+
                 _context.Stats.Add(item);
             }
         }
