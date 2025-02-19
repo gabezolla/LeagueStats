@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using LeagueStats.Application.Abstractions;
 using LeagueStats.Domain.Entities;
 using LeagueStats.Infrastructure.Clients;
 using LeagueStats.Infrastructure.Configurations;
@@ -16,14 +17,16 @@ namespace LeagueStats.Infrastructure.Services
     {
         private readonly IRiotClient _riotClient;
         private readonly AccountServiceConfiguration _config;
+        private readonly IMapper _mapper;
         
         public AccountService(IRiotClient riotClient, IOptions<AccountServiceConfiguration> configuration, IMapper mapper)
         {
             _riotClient = riotClient;
             _config = configuration.Value;
+            _mapper = mapper;
         }
 
-        public async Task<AccountDTO> GetSummoner(string gameName, string tagLine)
+        public async Task<Summoner> GetSummoner(string gameName, string tagLine)
         {
             var endpoint = _config.Endpoint
                 .Replace("{gameName}", gameName)
@@ -31,10 +34,10 @@ namespace LeagueStats.Infrastructure.Services
 
             var response = await _riotClient.Get<AccountDTO>(endpoint);
 
-            return response;
+            return _mapper.Map<Summoner>(response);
         }
 
-        public Task<AccountDTO> GetSummonerById(string puuid)
+        public Task<Summoner> GetSummonerById(string puuid)
         {
             throw new NotImplementedException();
         }
