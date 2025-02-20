@@ -29,12 +29,14 @@ namespace LeagueStats.Infrastructure.Services
 
             var response = await _client.Get<MatchStatsDTO>(endpoint);
 
-            foreach (var item in response.Info.Participants)
+            var stats = response.Info.Participants;
+
+            foreach (var item in stats)
             {
                 item.MatchId = response.Metadata.MatchId;
             }
 
-            return _mapper.Map<IEnumerable<Stats>>(response);
+            return _mapper.Map<IEnumerable<Stats>>(stats);
         }
 
         public async Task<IEnumerable<string>> GetMatchesIds(string summonerId, int quantity = 1)
