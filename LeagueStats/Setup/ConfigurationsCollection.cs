@@ -15,6 +15,7 @@ namespace LeagueStats.Setup
             builder.Services.Configure<MatchStatsServiceConfig>(config.GetSection("MatchStatsService"));
             builder.Services.Configure<RiotClientConfig>(config.GetSection("RiotClient"));
             builder.Services.Configure<DiscordBotConfig>(config.GetSection("DiscordBot"));
+            builder.Services.Configure<JwtSettings>(config.GetSection("JwtSettings"));
 
             return builder;
         }
