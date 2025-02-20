@@ -1,12 +1,14 @@
 ﻿using LeagueStats.Application.Commands;
 using LeagueStats.Domain.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
 namespace LeagueStats.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/v1")]
     public class LeagueStatsController : ControllerBase
     {

@@ -1,5 +1,7 @@
 using LeagueStats.Discord.Services;
+using LeagueStats.Infrastructure.Configurations;
 using LeagueStats.Setup;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +16,15 @@ builder.RegisterConfigurations();
 builder.Services.RegisterDependencies();
 builder.Services.RegisterServices();
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer();
+
+builder.Services.ConfigureOptions<JwtOptionsSetup>();
+builder.Services.ConfigureOptions<JwtBearerOptionsSetup>();
+
 builder.Services.AddHostedService<DiscordBackgroundService>();
+
+builder.Services.ConfigureSwagger();
 
 var app = builder.Build();
 
@@ -26,6 +36,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
