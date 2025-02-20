@@ -27,7 +27,7 @@ namespace LeagueStats.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, ex.Message);            
+                return StatusCode((int)HttpStatusCode.NotFound, ex.Message);            
             }
         }
     }
